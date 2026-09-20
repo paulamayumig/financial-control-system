@@ -1,5 +1,16 @@
-dados = []
+import json
+ARQUIVO = "data/transactions.json"
 
+
+def carregar_dados(ARQUIVO):
+    with open(ARQUIVO, "r") as arquivo:
+        return json.load(arquivo)
+
+def salvar_dados(ARQUIVO, dados):
+    with open(ARQUIVO, "w") as arquivo:
+            json.dump(dados, arquivo)
+
+dados = carregar_dados(ARQUIVO)
 
 def menu() -> None:
     print('''
@@ -25,6 +36,7 @@ def cadastrar(tipo: str, valor: float, categoria: str, data: str, descricao: str
     }
 
     dados.append(registro)
+    salvar_dados(ARQUIVO, dados)
 
 
 def calcular_saldo() -> float:
