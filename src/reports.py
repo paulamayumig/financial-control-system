@@ -1,5 +1,6 @@
 #ARQUIVO PARA RELATÓRIOS
 
+from src.validators import pedir_mes_ano
 
 def consultar(dados) -> None:
 
